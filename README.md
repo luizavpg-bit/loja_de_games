@@ -70,7 +70,6 @@ Este repositório contém a resolução da atividade prática avaliada sobre Spr
 - `POST /pedidos` — Realizar novo pedido
 - `DELETE /pedidos/{id}` — Cancelar/Deletar pedido
 ---
-
 ## 🌸 Regra de Negócio: Cadastro +18
 
 No endpoint `POST /auth/register`, é efetuada a verificação da idade informada no JSON. Caso o usuário tenha menos de 18 anos, a requisição é recusada com status **400 Bad Request**:
@@ -83,6 +82,21 @@ No endpoint `POST /auth/register`, é efetuada a verificação da idade informad
 
 ---
 
+## 🛢️ Configuração do Banco de Dados
+
+1. Certifique-se de ter o **MySQL** instalado e rodando.
+2. Duplique o arquivo `.env.example` na raiz do projeto e renomeie a cópia para `.env`.
+3. Preencha com o seu usuário e senha do MySQL local no arquivo `.env`:
+
+```env
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+```
+
+O Spring criará a base `db_lojagames` automaticamente ao iniciar. Caso deseje popular o banco com dados de teste, execute o arquivo `script/script_lojagames.sql` no MySQL Workbench.
+
+---
+
 ## 🌸 Como executar
 
 1. **Clone o repositório:**
@@ -91,13 +105,7 @@ No endpoint `POST /auth/register`, é efetuada a verificação da idade informad
 git clone https://github.com/SEU_USUARIO/lojagames.git
 ```
 
-2. **Configure o banco de dados:**
-   Ajuste as credenciais do seu MySQL no arquivo `src/main/resources/application.properties`:
-
-```properties
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-```
+2. **Configure o banco de dados** seguindo os passos da seção [Configuração do Banco de Dados](#-configuração-do-banco-de-dados) acima.
 
 3. **Execute o projeto:**
    Na raiz do projeto, rode o comando:
